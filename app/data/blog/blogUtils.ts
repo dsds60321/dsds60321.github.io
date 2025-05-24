@@ -7,6 +7,7 @@ import {memoPosts} from "@data/blog/etc/memo/memo";
 import {springPosts} from "@data/blog/spring/default/spring";
 import {webfluxPosts} from "@data/blog/spring/webflux/webflux";
 import {reactPosts} from "@data/blog/js/react/react";
+import {nettyPosts} from "@data/blog/netty/netty";
 
 /**
  * 모든 블로그 포스트를 카테고리별로 모아놓은 객체
@@ -16,6 +17,7 @@ export const allPosts: Record<string, BlogPost[]> = {
     'jpa': jpaPosts,
     'spring': springPosts,
     'webflux': webfluxPosts,
+    'netty': nettyPosts,
     'java': javaPosts,
     'memo': memoPosts,
     'react' : reactPosts,

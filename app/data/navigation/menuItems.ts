@@ -29,6 +29,13 @@ export const menuItems: MenuItem[] = [
                 ],
             },
             {
+                title: 'Netty',
+                path: '/blog/netty',
+                submenu: [
+                    { title: 'netty', path: '/blog/netty' }
+                ],
+            },
+            {
                 title: 'MQ',
                 path: '/blog/kafka',
                 submenu: [
