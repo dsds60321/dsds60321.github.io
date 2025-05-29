@@ -50,6 +50,13 @@ export const menuItems: MenuItem[] = [
                 ],
             },
             {
+                title: '코딩 테스트',
+                path: '/blog/coding',
+                submenu: [
+                    { title: '코딩 테스트', path: '/blog/coding' }
+                ],
+            },
+            {
                 title: 'ETC',
                 path: '/blog/etc',
                 submenu: [

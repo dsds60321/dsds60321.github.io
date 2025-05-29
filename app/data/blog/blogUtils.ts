@@ -8,6 +8,7 @@ import {springPosts} from "@data/blog/spring/default/spring";
 import {webfluxPosts} from "@data/blog/spring/webflux/webflux";
 import {reactPosts} from "@data/blog/js/react/react";
 import {nettyPosts} from "@data/blog/netty/netty";
+import {codingPosts} from "@data/blog/coding/coding";
 
 /**
  * 모든 블로그 포스트를 카테고리별로 모아놓은 객체
@@ -21,6 +22,7 @@ export const allPosts: Record<string, BlogPost[]> = {
     'java': javaPosts,
     'memo': memoPosts,
     'react' : reactPosts,
+    'coding' : codingPosts,
 };
 
 /**
