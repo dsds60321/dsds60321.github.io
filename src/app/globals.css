@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: 42 35% 98%;
+    --foreground: 222 47% 11%;
+    --muted: 48 33% 94%;
+    --muted-foreground: 215 16% 46%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --primary: 214 100% 45%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 222 13% 22%;
+    --secondary-foreground: 210 40% 98%;
+    --accent: 215 100% 97%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 214 100% 45%;
+    --radius: 1.2rem;
+}
+
+.dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --muted: 217 22% 20%;
+    --muted-foreground: 215 20% 65%;
+    --popover: 222 47% 12%;
+    --popover-foreground: 210 40% 98%;
+    --card: 222 47% 12%;
+    --card-foreground: 210 40% 98%;
+    --border: 217 22% 20%;
+    --input: 217 22% 20%;
+    --primary: 214 100% 65%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 215 18% 30%;
+    --secondary-foreground: 210 40% 98%;
+    --accent: 215 20% 20%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 2 74% 52%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 215 100% 65%;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground font-sans antialiased;
+    }
+}
+
+@layer components {
+    .heading-link {
+        @apply no-underline;
+    }
+
+    .heading-link::after {
+        content: '->';
+        opacity: 0;
+        transform: translateY(2px);
+        transition: opacity 150ms ease-out;
+        margin-left: 0.25rem;
+        font-size: 0.8rem;
+    }
+
+    .heading-link:hover::after {
+        opacity: 0.5;
+    }
+
+    .post-body {
+        @apply text-base leading-relaxed text-muted-foreground;
+    }
+
+    .post-body h2,
+    .post-body h3,
+    .post-body h4 {
+        @apply text-foreground font-semibold tracking-tight mt-10 mb-4;
+    }
+
+    .post-body p {
+        @apply mb-6;
+    }
+
+    .post-body ul,
+    .post-body ol {
+        @apply mb-6 ml-6 list-disc space-y-2;
+    }
+
+    .post-body code {
+        @apply rounded-md bg-muted px-1.5 py-0.5 font-mono text-sm text-secondary;
+    }
+
+    .post-body pre {
+        @apply mb-6 overflow-x-auto rounded-2xl border bg-secondary/10 p-4 text-sm;
+    }
+
+    .post-body blockquote {
+        @apply border-l-4 border-primary/30 pl-6 text-lg text-foreground/80 italic;
+    }
+}
