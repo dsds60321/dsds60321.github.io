@@ -2,13 +2,11 @@
   "name": "gunho-blog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dsds60321.github.io",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "deploy": "touch out/.nojekyll && gh-pages -d out -t true"
+    "lint": "eslint"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
