@@ -1,4 +1,4 @@
-export type PostTopic = 'netty' | 'java' | 'spring' | 'JPA';
+export type PostTopic = 'netty' | 'java' | 'spring' | 'JPA' | 'ETC';
 
 export interface PostSource {
     slug: string;

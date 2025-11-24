@@ -13,13 +13,18 @@ export const topicDefinitions: TopicDefinition[] = [
     },
     {
         id: 'spring',
-        label: 'spring',
+        label: 'Spring',
         description: 'Spring 관련',
     },
     {
         id: 'JPA',
         label: 'JPA',
         description: 'JPA 관련',
+    },
+    {
+        id: 'ETC',
+        label: 'ETC',
+        description: '기타등등',
     },
 ];
 
