@@ -5,8 +5,6 @@ Redis 모니터링 API를 처음 만들 때는 요청마다 `new Thread(new Moni
 ### 문제점
 - Thread 수를 제한하지 않아, 요청마다 Thread 를 들고 있었다.
 - Thread 이름/daemon 여부/우선순위를 맞출 수 없어 모니터링 시 어떤 작업인지 추적이 어려웠다.
-- Reactor `Flux` 구독이 끊겨도 Thread 가 계속 살아 있어 소켓이 유령 연결 상태로 남았다.
-- 기능 중단 발생시 전체 Thread 를 내릴 방법이 없어 애플리케이션 재기동이 유일한 해법이었다.
 
 `ExecutorService` 로 리팩토링을 진행했다.
 
@@ -55,15 +53,15 @@ public ExecutorService redisMonitorExecutor() {
             MAX_POOL_SIZE,
             KEEP_ALIVE.toMillis(),
             TimeUnit.MILLISECONDS,
-            new LinkedBlockingQueue<>(),
+            new SynchronousQueue<>(),
             threadFactory
     );
 }
 ```
 
-- `destroyMethod = "shutdown"` 덕분에 애플리케이션 종료 시 모니터링 작업이 안전하게 정리된다.
+- `destroyMethod = "shutdown"` 을 통해 애플리케이션 종료 시 모든 스레드가 정리된다.
 - Thread 이름 패턴(`redis-monitor-worker-*`)을 통일하니 APM, JVM dump 에서 검색하기가 쉬워졌다.
-- `LinkedBlockingQueue` 로 실행 순서를 보장하고, 추후 병렬성이 더 필요하면 `SynchronousQueue(true)` 로 바꿔 즉시 소비 전략을 적용할 계획이다.
+- `LinkedBlockingQueue` 로 실행 순서를 보장이 필요하다면 또는 병렬성이 필요하면 `SynchronousQueue(true)` 로 큐를 사용하면 된다
 
 ## RedisMonitorSvc 적용
 기존 `Flux.create` 구간에서 매번 Thread 를 만들던 코드를 아래처럼 `ExecutorService` 에 위임했다.
