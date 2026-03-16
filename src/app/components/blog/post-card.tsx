@@ -14,9 +14,11 @@ interface PostCardProps {
 
 export function PostCard({ post, index }: PostCardProps) {
     return (
-        <Card className="group flex h-full flex-col justify-between border-border/70 bg-card/80 p-6">
+        <Card className="group flex h-full flex-col justify-between border-white/8 bg-white/[0.03] p-6 shadow-[0_18px_60px_rgba(3,7,18,0.18)] backdrop-blur-xl">
             <div className="space-y-4">
-                <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{String(index + 1).padStart(2, '0')}</p>
+                <p className="font-display text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                    {String(index + 1).padStart(2, '0')}
+                </p>
                 <div className="flex flex-wrap gap-2">
                     <Badge variant="outline">{post.topic}</Badge>
                     <span className="text-sm text-muted-foreground">

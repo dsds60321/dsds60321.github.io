@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { HeroSection } from '@/app/components/blog/hero';
+import { CosmicHeroShell } from '@/app/components/blog/cosmic-hero-shell';
 import { PostHub } from '@/app/components/blog/post-hub';
 import { JsonLd } from '@/app/components/layout/json-ld';
 import { siteConfig } from '@/app/constants/site';
@@ -36,8 +36,8 @@ export default async function HomePage() {
 
     return (
         <>
-            <div className="min-h-screen bg-gradient-to-b from-background via-background to-background/90">
-                <HeroSection />
+            <div className="min-h-screen">
+                <CosmicHeroShell posts={posts} topics={topicDefinitions} />
                 <PostHub posts={posts} topics={topicDefinitions} />
             </div>
             <JsonLd id="homepage-jsonld" data={homeJsonLd} />

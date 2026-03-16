@@ -31,12 +31,12 @@ export function PostHub({ posts, topics }: PostHubProps) {
     }, [posts, query, topic]);
 
     return (
-        <section id="posts" className="mx-auto w-full max-w-5xl px-6 py-16">
+        <section id="posts" className="mx-auto w-full max-w-7xl px-6 py-20">
             <div className="flex flex-col gap-8">
-                <div className="flex flex-col gap-6 rounded-3xl border border-border/70 bg-card/70 p-8">
+                <div className="cosmic-panel flex flex-col gap-6 rounded-[2rem] p-8">
                     <div className="flex flex-col gap-3 text-center md:text-left">
-                        <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Topics</p>
-                        <h2 className="text-3xl font-semibold text-foreground">관심 있는 주제만 골라서 읽어 보세요</h2>
+                        <p className="font-display text-sm uppercase tracking-[0.3em] text-[#62f0ff]">Archive Filter</p>
+                        <h2 className="text-3xl font-semibold text-foreground">관심 있는 신호만 골라서 읽어 보세요</h2>
                         <p className="text-base text-muted-foreground">
                             {posts.length}개의 기록 중 {filtered.length}개가 현재 필터 조건과 일치합니다.
                         </p>
@@ -81,7 +81,7 @@ export function PostHub({ posts, topics }: PostHubProps) {
                 <Separator className="h-px w-full" />
                 <div className="grid gap-6 md:grid-cols-2">
                     {filtered.length === 0 && (
-                        <div className="rounded-3xl border border-dashed border-border/70 p-10 text-center text-muted-foreground md:col-span-2">
+                        <div className="rounded-[2rem] border border-dashed border-border/70 p-10 text-center text-muted-foreground md:col-span-2">
                             조건에 맞는 글이 없어요. 검색어를 수정하거나 다른 토픽을 선택해 보세요.
                         </div>
                     )}
@@ -89,7 +89,7 @@ export function PostHub({ posts, topics }: PostHubProps) {
                         <PostCard key={post.slug} post={post} index={index} />
                     ))}
                 </div>
-                <div className="rounded-3xl border bg-secondary/5 p-8 text-center text-sm text-muted-foreground">
+                <div className="cosmic-panel rounded-[2rem] p-8 text-center text-sm text-muted-foreground">
                     개인적으로 공부한 내용이기에 잘못된 정보가 있을 수 있습니다.
                 </div>
             </div>

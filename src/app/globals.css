@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 :root {
-    --background: 42 35% 98%;
-    --foreground: 222 47% 11%;
-    --muted: 48 33% 94%;
-    --muted-foreground: 215 16% 46%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --primary: 214 100% 45%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 222 13% 22%;
-    --secondary-foreground: 210 40% 98%;
-    --accent: 215 100% 97%;
-    --accent-foreground: 222 47% 11%;
+    --background: 228 43% 7%;
+    --foreground: 210 40% 96%;
+    --muted: 225 27% 14%;
+    --muted-foreground: 214 15% 69%;
+    --popover: 227 38% 9%;
+    --popover-foreground: 210 40% 96%;
+    --card: 226 34% 10%;
+    --card-foreground: 210 40% 96%;
+    --border: 222 25% 19%;
+    --input: 222 25% 19%;
+    --primary: 190 100% 69%;
+    --primary-foreground: 226 58% 10%;
+    --secondary: 226 19% 22%;
+    --secondary-foreground: 210 40% 96%;
+    --accent: 225 29% 16%;
+    --accent-foreground: 210 40% 96%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-    --ring: 214 100% 45%;
+    --ring: 190 100% 69%;
     --radius: 1.2rem;
 }
 
@@ -54,10 +54,56 @@
 
     body {
         @apply bg-background text-foreground font-sans antialiased;
+        background-image:
+            radial-gradient(circle at 18% 18%, rgba(98, 240, 255, 0.08), transparent 26%),
+            radial-gradient(circle at 82% 12%, rgba(155, 140, 255, 0.1), transparent 28%),
+            radial-gradient(circle at 50% 90%, rgba(111, 255, 176, 0.07), transparent 24%),
+            linear-gradient(180deg, #040816 0%, #060a1a 36%, #070c18 100%);
+        min-height: 100vh;
+    }
+
+    ::selection {
+        background: rgba(98, 240, 255, 0.3);
+        color: white;
     }
 }
 
 @layer components {
+    .font-display {
+        font-family: var(--font-display), var(--font-geist-sans), sans-serif;
+    }
+
+    .cosmic-panel {
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+            rgba(5, 10, 24, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 20px 80px rgba(3, 7, 18, 0.35);
+        backdrop-filter: blur(22px);
+    }
+
+    .cosmic-stars {
+        background-image:
+            radial-gradient(circle at 14% 22%, rgba(255, 255, 255, 0.72) 0 1px, transparent 1.2px),
+            radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.42) 0 1px, transparent 1.2px),
+            radial-gradient(circle at 62% 54%, rgba(98, 240, 255, 0.56) 0 1px, transparent 1.3px),
+            radial-gradient(circle at 28% 78%, rgba(255, 255, 255, 0.52) 0 1px, transparent 1.2px),
+            radial-gradient(circle at 86% 74%, rgba(255, 255, 255, 0.42) 0 1px, transparent 1.3px);
+        background-size: 340px 340px, 420px 420px, 300px 300px, 380px 380px, 460px 460px;
+    }
+
+    .cosmic-grid {
+        background-image:
+            linear-gradient(rgba(98, 240, 255, 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(98, 240, 255, 0.08) 1px, transparent 1px);
+        background-size: 60px 60px;
+        mask-image: linear-gradient(180deg, transparent, black 16%, black 84%, transparent);
+    }
+
+    .signal-sheen {
+        box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.14);
+    }
+
     .heading-link {
         @apply no-underline;
     }
@@ -95,11 +141,11 @@
     }
 
     .post-body code {
-        @apply rounded-md bg-muted px-1.5 py-0.5 font-mono text-sm text-secondary;
+        @apply rounded-md bg-muted px-1.5 py-0.5 font-mono text-sm text-foreground;
     }
 
     .post-body pre {
-        @apply mb-6 overflow-x-auto rounded-2xl border bg-secondary/10 p-4 text-sm;
+        @apply mb-6 overflow-x-auto rounded-2xl border bg-secondary/20 p-4 text-sm;
     }
 
     .post-body blockquote {

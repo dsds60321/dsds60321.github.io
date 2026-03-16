@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
+import { Geist, Geist_Mono, Space_Grotesk } from 'next/font/google';
 import { siteConfig } from '@/app/constants/site';
 import { SiteFooter } from '@/app/components/layout/site-footer';
 import { SiteHeader } from '@/app/components/layout/site-header';
@@ -13,6 +13,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
     variable: '--font-geist-mono',
+    subsets: ['latin'],
+});
+
+const spaceGrotesk = Space_Grotesk({
+    variable: '--font-display',
     subsets: ['latin'],
 });
 
@@ -43,7 +48,6 @@ export const metadata: Metadata = {
             'max-video-preview': -1,
         },
     },
-    themeColor: siteConfig.themeColor,
     formatDetection: {
         email: false,
         address: false,
@@ -78,6 +82,10 @@ export const metadata: Metadata = {
     },
 };
 
+export const viewport: Viewport = {
+    themeColor: siteConfig.themeColor,
+};
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -85,7 +93,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ko">
-            <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background text-foreground`}>
+            <body className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} min-h-screen bg-background text-foreground`}>
                 <TopicFilterProvider>
                     <div className="flex min-h-screen flex-col">
                         <SiteHeader />

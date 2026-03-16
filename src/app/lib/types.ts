@@ -26,4 +26,16 @@ export interface TopicDefinition {
     id: PostTopic;
     label: string;
     description: string;
+    accent: string;
+    orbitLatitude: number;
+}
+
+export interface CosmicPostNode extends PostListItem {
+    href: string;
+    accent: string;
+    orbitLatitude: number;
+    latitude: number;
+    longitude: number;
+    coordinateLabel: string;
+    signalCode: string;
 }
