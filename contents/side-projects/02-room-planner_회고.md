@@ -220,4 +220,4 @@ export function resolvePlacedRooms(rooms: Room[], placements: Placement[]) {
 ## 7. 결과
 도메인 : https://home-plan.crazevo.com <br>
 GitHub : https://github.com/dsds60321/room-planer
-![demo.gif](../../public/demo.gif)
+![demo.gif](https://github.com/dsds60321/dsds60321.github.io/blob/main/public/demo.gif)

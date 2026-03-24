@@ -3,7 +3,7 @@ import type { PostSource } from '@/app/lib/types';
 const roomPlannerWhyBuilt: PostSource = {
     slug: 'room-planner-why-built',
     topic: 'sideProject',
-    title: '2. Room Planner',
+    title: '1. Room Planner',
     description: 'Room Planner를 왜 만들었는지와 어떤 범위로 문제를 정의했는지 정리한 회고입니다.',
     publishedAt: '2026-03-23',
     updatedAt: '2026-03-24',
