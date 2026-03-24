@@ -6,6 +6,7 @@ import { JsonLd } from '@/app/components/layout/json-ld';
 import { Badge } from '@/app/components/ui/badge';
 import { Button } from '@/app/components/ui/button';
 import { siteConfig } from '@/app/constants/site';
+import { getTopicLabel } from '@/app/constants/topics';
 import { getAllPostListItems, getPostBySlug } from '@/app/lib/posts';
 import { formatDate } from '@/app/lib/date';
 
@@ -77,6 +78,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     const canonicalUrl = `${siteConfig.url}/blog/${post.slug}`;
     const ogImage = post.coverImage ?? siteConfig.ogImage;
     const updatedAt = post.updatedAt ?? post.publishedAt;
+    const topicLabel = getTopicLabel(post.topic);
 
     const articleJsonLd = {
         '@context': 'https://schema.org',
@@ -139,7 +141,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     </Button>
                     <div className="space-y-4">
                         <Badge variant="outline" className="capitalize">
-                            {post.topic}
+                            {topicLabel}
                         </Badge>
                         <h1 className="text-4xl font-semibold text-foreground">{post.title}</h1>
                         <p className="text-lg text-muted-foreground">{post.description}</p>

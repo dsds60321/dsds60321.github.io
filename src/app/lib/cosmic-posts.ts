@@ -6,6 +6,7 @@ const TOPIC_LONGITUDE_OFFSET: Record<PostTopic, number> = {
     spring: 156,
     JPA: 228,
     ETC: 300,
+    sideProject: 336,
 };
 
 const clamp = (value: number, min: number, max: number): number => Math.min(max, Math.max(min, value));

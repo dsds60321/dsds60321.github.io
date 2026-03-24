@@ -6,6 +6,7 @@ import type { PostListItem } from '@/app/lib/types';
 import { formatDate } from '@/app/lib/date';
 import { Badge } from '@/app/components/ui/badge';
 import { Card, CardContent } from '@/app/components/ui/card';
+import { getTopicLabel } from '@/app/constants/topics';
 
 interface PostCardProps {
     post: PostListItem;
@@ -13,6 +14,8 @@ interface PostCardProps {
 }
 
 export function PostCard({ post, index }: PostCardProps) {
+    const topicLabel = getTopicLabel(post.topic);
+
     return (
         <Card className="group flex h-full flex-col justify-between border-white/8 bg-white/[0.03] p-6 shadow-[0_18px_60px_rgba(3,7,18,0.18)] backdrop-blur-xl">
             <div className="space-y-4">
@@ -20,7 +23,7 @@ export function PostCard({ post, index }: PostCardProps) {
                     {String(index + 1).padStart(2, '0')}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline">{post.topic}</Badge>
+                    <Badge variant="outline">{topicLabel}</Badge>
                     <span className="text-sm text-muted-foreground">
                         {formatDate(post.publishedAt)} · {post.readingMinutes}분
                     </span>

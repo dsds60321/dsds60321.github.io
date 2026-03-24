@@ -1,16 +1,18 @@
 import type { PostSource } from '@/app/lib/types';
-import {nettyPosts} from "./netty";
-import {javaPosts} from "@/app/data/blog/java";
-import {springPosts} from "@/app/data/blog/spring";
-import {jpaPosts} from "@/app/data/blog/jpa";
-import {etcPosts} from "@/app/data/blog/etc";
+import { etcPosts } from '@/app/data/blog/etc';
+import { javaPosts } from '@/app/data/blog/java';
+import { jpaPosts } from '@/app/data/blog/jpa';
+import { nettyPosts } from './netty';
+import { sideProjectPosts } from '@/app/data/blog/sideProject';
+import { springPosts } from '@/app/data/blog/spring';
 
 export const postsByTopic = {
     netty: nettyPosts,
-    java : javaPosts,
-    spring : springPosts,
-    jpa : jpaPosts,
-    etc : etcPosts
+    java: javaPosts,
+    spring: springPosts,
+    jpa: jpaPosts,
+    etc: etcPosts,
+    sideProject: sideProjectPosts,
 };
 
 export const allPosts: PostSource[] = [
@@ -18,5 +20,6 @@ export const allPosts: PostSource[] = [
     ...postsByTopic.java,
     ...postsByTopic.spring,
     ...postsByTopic.jpa,
-    ...postsByTopic.etc
+    ...postsByTopic.etc,
+    ...postsByTopic.sideProject,
 ];

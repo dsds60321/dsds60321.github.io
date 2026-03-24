@@ -36,6 +36,13 @@ export const topicDefinitions: TopicDefinition[] = [
         accent: '#ff8ad8',
         orbitLatitude: -48,
     },
+    {
+        id: 'sideProject',
+        label: 'Side Project',
+        description: '토이프로젝트 회고',
+        accent: '#ffb86b',
+        orbitLatitude: -64,
+    },
 ];
 
 export const topicMap = topicDefinitions.reduce<Record<PostTopic, TopicDefinition>>(
@@ -45,3 +52,5 @@ export const topicMap = topicDefinitions.reduce<Record<PostTopic, TopicDefinitio
     },
     {} as Record<PostTopic, TopicDefinition>,
 );
+
+export const getTopicLabel = (topic: PostTopic): string => topicMap[topic]?.label ?? topic;
