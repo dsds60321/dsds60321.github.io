@@ -5,6 +5,8 @@ import quantRetrospective04 from '@/app/data/blog/sideProject/quantRetrospective
 import quantRetrospective05 from '@/app/data/blog/sideProject/quantRetrospective05';
 import roomPlannerImplementationRetrospective from '@/app/data/blog/sideProject/roomPlannerImplementationRetrospective';
 import roomPlannerWhyBuilt from '@/app/data/blog/sideProject/roomPlannerWhyBuilt';
+import ttsGeneratorImplementationRetrospective from '@/app/data/blog/sideProject/ttsGeneratorImplementationRetrospective';
+import ttsGeneratorWhyBuilt from '@/app/data/blog/sideProject/ttsGeneratorWhyBuilt';
 
 export const sideProjectPosts = [
     quantRetrospective01,
@@ -14,4 +16,6 @@ export const sideProjectPosts = [
     quantRetrospective05,
     roomPlannerImplementationRetrospective,
     roomPlannerWhyBuilt,
+    ttsGeneratorImplementationRetrospective,
+    ttsGeneratorWhyBuilt,
 ];
